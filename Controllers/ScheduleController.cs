@@ -27,6 +27,20 @@ namespace studylist.Controllers
             return Studies;
         }
 
+        [HttpPut]
+        public ActionResult<List<Study>> Put([FromBody] Study NewStudy)
+        {
+            var Item = Studies.Find(Study => Study.Id == NewStudy.Id);
+
+            if(Item != null) 
+            {
+                Studies.Remove(Item);
+                Studies.Add(NewStudy);
+            }
+
+            return Studies;
+        }
+
         [HttpDelete]
         public ActionResult<List<Study>> Delete([FromQuery] int Id)
         {
