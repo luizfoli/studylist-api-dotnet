@@ -1,7 +1,8 @@
 namespace studylist.Models
 {
     public class Study
-    {
-        public string name {get;set;}
+    { 
+        public int Id {get;set;}
+        public string Name {get;set;}
     }
 }
