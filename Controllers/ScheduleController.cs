@@ -10,8 +10,8 @@ namespace studylist.Controllers
     {
         private static readonly List<Study> Studies = new List<Study>
         {
-            new Study{name = "Terminar a leitura do livro Refactoring"},
-            new Study{name = "Aprimorar conhecimento em Algoritmos e Estrutura de Dados"}
+            new Study{Id = 1, Name = "Terminar a leitura do livro Refactoring"},
+            new Study{Id = 2, Name = "Aprimorar conhecimento em Algoritmos e Estrutura de Dados"}
         };
 
         [HttpGet]
@@ -27,5 +27,11 @@ namespace studylist.Controllers
             return Studies;
         }
 
+        [HttpDelete]
+        public ActionResult<List<Study>> Delete([FromQuery] int Id)
+        {
+            Studies.Remove(Studies.Find(Study => Study.Id == Id));
+            return Studies;
+        }
     }
 }
